@@ -1,0 +1,370 @@
+/* Enhanced Calendar Styles for ContentPro */
+
+/* Remove default react-big-calendar styles and create our own */
+.rbc-calendar {
+  background: transparent !important;
+  border: none !important;
+  font-family: inherit !important;
+}
+
+/* Header Styling */
+.rbc-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  padding: 16px 12px !important;
+  border: none !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.rbc-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  pointer-events: none;
+}
+
+/* Today's Date Highlight */
+.rbc-today {
+  background: linear-gradient(135deg, #ff6b6b 0%, #ffa500 100%) !important;
+  color: white !important;
+  border-radius: 12px !important;
+  border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4) !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.rbc-today::before {
+  content: '✨';
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 14px;
+  animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.1); }
+}
+
+/* Date Cells */
+.rbc-date-cell {
+  background: rgba(255, 255, 255, 0.95) !important;
+  border: 1px solid rgba(102, 126, 234, 0.1) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  position: relative !important;
+  min-height: 120px !important;
+}
+
+.rbc-date-cell:hover {
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%) !important;
+  border-color: rgba(102, 126, 234, 0.3) !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.15) !important;
+}
+
+/* Off-range dates */
+.rbc-off-range {
+  background: rgba(248, 249, 250, 0.8) !important;
+  color: rgba(108, 117, 125, 0.6) !important;
+}
+
+.rbc-off-range-bg {
+  background: rgba(248, 249, 250, 0.5) !important;
+}
+
+/* Date Numbers */
+.rbc-date-cell button {
+  background: none !important;
+  border: none !important;
+  font-weight: 600 !important;
+  font-size: 0.875rem !important;
+  color: #334155 !important;
+  padding: 8px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.rbc-date-cell button:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* Event Styling */
+.rbc-event {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  border: none !important;
+  border-radius: 8px !important;
+  padding: 4px 8px !important;
+  margin: 2px 0 !important;
+  color: white !important;
+  font-weight: 500 !important;
+  font-size: 0.75rem !important;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+  transition: all 0.2s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+}
+
+.rbc-event::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.rbc-event:hover::before {
+  left: 100%;
+}
+
+.rbc-event:hover {
+  transform: translateY(-1px) scale(1.02) !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* Platform-specific colors */
+.rbc-event.social {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%) !important;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3) !important;
+}
+
+.rbc-event.email {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%) !important;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3) !important;
+}
+
+.rbc-event.blog {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%) !important;
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.3) !important;
+}
+
+/* Status indicators */
+.rbc-event.draft::after {
+  content: '✏️';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 10px;
+}
+
+.rbc-event.scheduled::after {
+  content: '⏰';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 10px;
+}
+
+.rbc-event.posted::after {
+  content: '✅';
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 10px;
+}
+
+/* Toolbar */
+.rbc-toolbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px) !important;
+  border-radius: 16px !important;
+  padding: 16px 20px !important;
+  margin-bottom: 20px !important;
+  border: 1px solid rgba(102, 126, 234, 0.1) !important;
+  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.1) !important;
+}
+
+.rbc-toolbar button {
+  background: white !important;
+  border: 1px solid rgba(102, 126, 234, 0.2) !important;
+  color: #667eea !important;
+  font-weight: 500 !important;
+  padding: 8px 16px !important;
+  border-radius: 8px !important;
+  transition: all 0.2s ease !important;
+  margin: 0 4px !important;
+}
+
+.rbc-toolbar button:hover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3) !important;
+  border-color: transparent !important;
+}
+
+.rbc-toolbar button.rbc-active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 2px 10px rgba(102, 126, 234, 0.3) !important;
+}
+
+.rbc-toolbar-label {
+  font-weight: 700 !important;
+  font-size: 1.25rem !important;
+  color: #1e293b !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  margin: 0 20px !important;
+}
+
+/* Month View Specific */
+.rbc-month-view {
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: white !important;
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.1) !important;
+  border: 1px solid rgba(102, 126, 234, 0.1) !important;
+}
+
+.rbc-month-row {
+  border-bottom: 1px solid rgba(102, 126, 234, 0.1) !important;
+}
+
+/* Week View Specific */
+.rbc-time-header-content {
+  border-left: 1px solid rgba(102, 126, 234, 0.1) !important;
+}
+
+.rbc-time-content {
+  border-top: 1px solid rgba(102, 126, 234, 0.1) !important;
+}
+
+/* Loading and Empty States */
+.calendar-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-radius: 16px;
+  border: 2px dashed rgba(102, 126, 234, 0.2);
+}
+
+.calendar-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #64748b;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  border-radius: 16px;
+  border: 2px dashed rgba(102, 126, 234, 0.2);
+}
+
+.calendar-empty h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: #1e293b;
+}
+
+.calendar-empty p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+/* Premium Upgrade Banner */
+.premium-banner {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 600;
+  box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-banner::before {
+  content: '👑';
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(-50%); }
+  50% { transform: translateY(-70%); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .rbc-toolbar {
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .rbc-toolbar-label {
+    order: -1;
+    margin: 0 0 8px 0 !important;
+  }
+  
+  .rbc-date-cell {
+    min-height: 80px !important;
+  }
+  
+  .rbc-event {
+    font-size: 0.7rem !important;
+    padding: 2px 6px !important;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .rbc-calendar {
+    color: #e2e8f0 !important;
+  }
+  
+  .rbc-date-cell {
+    background: rgba(15, 23, 42, 0.95) !important;
+    border-color: rgba(102, 126, 234, 0.2) !important;
+  }
+  
+  .rbc-date-cell button {
+    color: #e2e8f0 !important;
+  }
+  
+  .rbc-off-range {
+    background: rgba(15, 23, 42, 0.5) !important;
+    color: rgba(148, 163, 184, 0.6) !important;
+  }
+  
+  .rbc-month-view {
+    background: #0f172a !important;
+  }
+  
+  .rbc-toolbar {
+    background: rgba(15, 23, 42, 0.95) !important;
+  }
+  
+  .rbc-toolbar button {
+    background: rgba(30, 41, 59, 0.8) !important;
+    color: #e2e8f0 !important;
+    border-color: rgba(102, 126, 234, 0.3) !important;
+  }
+}
